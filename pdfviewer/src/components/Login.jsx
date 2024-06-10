@@ -54,7 +54,7 @@ function Login() {
                             </div>
                         </div>
                         <div className='account-text'>
-                            <p className='have-account'>Don't have an Account? <a href="./Login" className='loginlink'>Signup</a></p>
+                            <p className='have-account'>Don't have an Account? <a href="./Signup" className='loginlink'>Signup</a></p>
                         </div>
                     </div>
                 </div>

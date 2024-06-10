@@ -75,7 +75,7 @@ function Signup() {
                             </div>
                         </div>
                         <div className='account-text'>
-                            <p className='have-account'>Already have an Account? <a href="./Home" className='loginlink'>Sign in</a></p>
+                            <p className='have-account'>Already have an Account? <a href="./Login" className='loginlink'>Sign in</a></p>
                         </div>
                     </div>
                 </div>
