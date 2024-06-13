@@ -1,8 +1,35 @@
 import React, { useState } from 'react';
 import './Login.css';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
 
-function Login() {
+function Login({ onLogin }) {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:3001/auth/login', { email, password })
+            .then(result => {
+                console.log(result);
+                if (result.data.token) {
+                    localStorage.setItem('token', result.data.token);
+                    onLogin();
+                   
+                    alert("Successfully logged in!");
+                    navigate("/Homepage");
+                } else {
+                    setError("Email or password is wrong");
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                setError("An error occurred during login");
+            });
+    };
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
@@ -22,7 +49,12 @@ function Login() {
                             <div className='input-username'>
                                 <label>
                                     <div className='input-with-icon'>
-                                        <input type="text" placeholder='Enter Username' className='inputField' />
+                                        <input
+                                            type="text"
+                                            placeholder='Enter Username'
+                                            className='inputField'
+                                            onChange={(e) => setEmail(e.target.value)}
+                                        />
                                         <i className="fas fa-envelope icon"></i>
                                     </div>
                                 </label>
@@ -34,6 +66,7 @@ function Login() {
                                             type={showPassword ? "text" : "password"}
                                             placeholder='Enter password'
                                             className='inputField'
+                                            onChange={(e) => setPassword(e.target.value)}
                                         />
                                         <i className="fas fa-lock icon"></i>
                                         <i
@@ -43,18 +76,13 @@ function Login() {
                                     </div>
                                 </label>
                             </div>
+                            {error && <p className="error-message">{error}</p>}
                             <div className="signup-container">
-                                <button className='signup-button'>Login</button>
-                                <p className='OR-text'>OR</p>
-                                <div className='box'>
-                                    <button className='google-button'>
-                                        <img src="../googleicon.png" alt="Google" className="google-icon" />
-                                    </button>
-                                </div>
+                                <button className='signup-button' onClick={handleSubmit}>Login</button>
                             </div>
                         </div>
                         <div className='account-text'>
-                            <p className='have-account'>Don't have an Account? <a href="./Signup" className='loginlink'>Signup</a></p>
+                            <p className='have-account'>Don't have an Account? <Link to="/" className='loginlink'>Sign up</Link></p>
                         </div>
                     </div>
                 </div>
