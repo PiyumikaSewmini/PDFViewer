@@ -1,0 +1,513 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif;
+    height: 100%;
+}
+
+.Fullpage {
+    display: flex;
+    height: 100vh; 
+}
+
+.Logo {
+    font-size: larger; 
+    font-weight: bold; 
+    text-align: left;
+    display: flex;
+    justify-content: left; 
+    padding-left: 90px; 
+    flex: 1; 
+    cursor: pointer;
+}
+
+.letterI {
+    font-style: italic;
+}
+
+.PDF {
+    color: #EB0E0E;
+}
+
+.ImageContainer {
+    flex: 1; 
+    display: flex;
+}
+
+.RightImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.CenteredBox {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1200px;
+    height: auto;
+    min-height: 500px;
+    border: 2px dashed #263238;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    text-align: center;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.view-pdf-details {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 40%;
+    max-width: 600px;
+}
+
+.pdf-item {
+    width: calc(43.33% - 30px); 
+    max-width: 600px; 
+    height: 20px; 
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pdf-title {
+    margin-bottom: 10px;
+    font-weight: bold;
+    flex-grow: 1; 
+    margin: 10px;
+}
+
+.view-pdf {
+    color: #1ba032;
+    text-decoration: none;
+    margin-top: 10px;
+    margin: 10px;
+}
+
+.delete-icon {
+    color: #eb0e0e;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.pdf-icon-img {
+    position: absolute;
+    top: 0px; 
+    width: 5%; 
+    height: auto; 
+    padding-top: 25px;
+    margin-bottom: 0;
+}
+.Drag-and-drop-text{
+     color:#263238 ;
+     font-size: larger; 
+     font-weight: bold; 
+     margin: 10px;
+     position: absolute;
+     top: 24%;
+
+}
+
+
+.file-input {
+    display: none;
+}
+
+.upload-button {
+    background-color: #1BA032;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px; 
+    width: 12%;
+    height: 8%;
+    position: absolute;
+    top:42%;
+    left:43%;
+}
+
+
+.upload-button:hover {
+    background-color: darkgreen;
+}
+
+.form-control{
+    color: #1BA032;
+    width: 60%;
+    height: 34%;
+    position: absolute;
+    top:57%;
+    text-align: center;
+    left: 43%;
+}
+.form-control_1{
+    color: #000;
+    width: 17%;
+    height: 8%;
+    position: absolute;
+    top:38%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    left:41%;
+    border-radius: 10px;
+    
+}
+
+
+.LeftBottomImageContainer {
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    z-index: 999; 
+}
+
+.LeftBottomImage {
+    width: 300px;
+    height: auto;
+}
+.logout-button {
+    background-color: #EB0E0E; 
+    color: white; 
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    position: absolute;
+    right:6%;
+    top:6%;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+@media screen and (max-width: 768px) {
+    .LeftBottomImageContainer {
+        position: absolute; 
+        bottom: 0; 
+        left: 0; 
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    
+    
+    .LeftBottomImage {
+        width: 200px; 
+        height: auto;
+    }
+    .pdf-icon-img {
+        position: absolute;
+        top: 15px; 
+        width: 9%; 
+        height: auto; 
+        padding-top: 28px;
+        margin-bottom: 0;
+    }
+    .Logo {
+        font-size: larger; 
+        font-weight: bold; 
+        text-align: left;
+        display: flex;
+        justify-content: left; 
+        padding-left: 67px; 
+        flex: 1; 
+    }
+    .upload-img{
+        width: 45%;
+        height: auto;
+     
+    }
+    
+    
+}
+@media screen and (max-width: 560px) {
+    .Logo {
+        font-size: larger; 
+        font-weight: bold; 
+        text-align: left;
+        display: flex;
+        justify-content: left; 
+        margin-left: -40px; 
+        flex: 1; 
+     
+  
+    }
+    .upload-img{
+        width: 50%;
+        height: auto;
+     
+    }
+    .upload-button {
+        background-color: #1BA032;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px; 
+        width: 16%;
+        height: 8%;
+        position: absolute;
+        top:32%;
+        left:40%;
+    }
+    
+    
+    .upload-button:hover {
+        background-color: darkgreen;
+    }
+    
+    .form-control{
+        color: #1BA032;
+        width: 60%;
+        height: 34%;
+        position: absolute;
+        top:51%;
+        text-align: center;
+        left: 30%;
+    }
+    .form-control_1{
+        color: #000;
+        width: 37%;
+        height: 8%;
+        position: absolute;
+        top:36%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        left:30%;
+        border-radius: 10px;
+        
+    }
+    .CenteredBox {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 1200px;
+        height: auto;
+        min-height: 500px;
+        border: 2px dashed #263238;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+        flex-direction: column;
+    }
+    
+    .view-pdf-details {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 40%;
+        max-width: 600px;
+  
+    }
+    
+    .pdf-item {
+        width: calc(42.33% - 30px); 
+        max-width: 600px;
+        height: 20px; 
+        margin: 20px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .pdf-title {
+        margin-bottom: 10px;
+        font-size: x-small;
+        flex-grow: 1; 
+        margin: 5px;
+    }
+    
+    .view-pdf {
+        color: #1ba032;
+        text-decoration: none;
+        margin-top: 10px;
+        margin: 5px;
+        font-size: x-small;
+    }
+    
+    .delete-icon {
+        color: #eb0e0e;
+        cursor: pointer;
+        margin: 10px;
+        font-size: x-small;
+    }
+    
+}
+@media screen and (max-width: 480px){
+    .LeftBottomImageContainer {
+        position: absolute; 
+        bottom: 0; 
+        left: 0; 
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    
+    
+    .LeftBottomImage {
+        width: 100px; 
+        height: auto;
+    }
+    .Logo {
+        font-size: larger; 
+        font-weight: bold; 
+        text-align: left;
+        display: flex;
+        justify-content: left; 
+        padding-left: 36px; 
+        flex: 1; 
+        position: absolute;
+        top: 20px;
+    }
+    .upload-button {
+        background-color: #1BA032;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px; 
+        width: 20%;
+        height: 3%;
+    }
+    .upload-img{
+        width: 60%;
+        height: auto;
+    }
+    
+    .CenteredBox {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80%;
+        max-width: 1200px;
+        height: auto;
+        min-height: 500px;
+        border: 2px dashed #263238;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+        flex-direction: column;
+    }
+    
+    .view-pdf-details {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 50%;
+        max-width: 600px;
+        margin: 10px;
+        margin-right: 10px;
+       
+  
+    }
+    
+    .pdf-item {
+        width: calc(52.33% - 30px);
+        max-width: 600px; 
+        height: 20px; 
+        margin: 10px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    
+    .pdf-title {
+        margin-bottom: 10px;
+        font-size: x-small;
+        flex-grow: 1; 
+        margin: 5px;
+    }
+    
+    .view-pdf {
+        color: #1ba032;
+        text-decoration: none;
+        margin-top: 10px;
+        margin: 5px;
+        font-size: x-small;
+    }
+    
+    .delete-icon {
+        color: #eb0e0e;
+        cursor: pointer;
+        margin: 10px;
+        font-size: x-small;
+    }
+    .logout-button {
+        background-color: #EB0E0E; 
+        color: white; 
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        position: absolute;
+        right:10%;
+        top:6%;
+    }
+    
+    .logout-button:hover {
+        background-color: darkred;
+    }
+    
+    
+}
