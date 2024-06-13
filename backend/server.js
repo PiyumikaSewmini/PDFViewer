@@ -15,13 +15,11 @@ mongoose.connect('mongodb://127.0.0.1:27017/employee', {
     console.log('MongoDB connected');
 }).catch(err => console.log(err));
 
-
 app.use('/files', express.static('files'));
-
-
 app.use('/pdf', pdfRouter);
-app.use('/auth',authRouter);
+app.use('/auth', authRouter);
 
-app.listen(3001, () => {
-    console.log('Server is running on port 3001');
+const PORT = process.env.PORT || 3002;  // Change the port here
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
