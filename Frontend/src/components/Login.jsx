@@ -12,7 +12,7 @@ function Login({ onLogin }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3003/auth/login', { email, password })
+        axios.post('http://localhost:3001/auth/login', { email, password })
             .then(result => {
                 console.log(result);
                 if (result.data.token) {

@@ -17,7 +17,7 @@ function Signup() {
             setError("Passwords do not match!");
             return;
         }
-        axios.post('http://localhost:3003/auth/register', { email, password, confirmPassword })
+        axios.post('http://localhost:3001/auth/register', { email, password, confirmPassword })
             .then(result => {
                 console.log(result);
                 if (result.data.message === "User already exists") {

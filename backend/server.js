@@ -19,7 +19,7 @@ app.use('/files', express.static('files'));
 app.use('/pdf', pdfRouter);
 app.use('/auth', authRouter);
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

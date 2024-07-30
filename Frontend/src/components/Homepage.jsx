@@ -21,7 +21,7 @@ function Homepage() {
 
     const getPdf = async () => {
         try {
-            const result = await axios.get("http://localhost:3003/pdf/get-files");
+            const result = await axios.get("http://localhost:3001/pdf/get-files");
             setAllImages(result.data.data);
         } catch (error) {
             console.error("Error fetching PDFs:", error);
@@ -47,7 +47,7 @@ function Homepage() {
         }
 
         try {
-            await axios.post("http://localhost:3003/pdf/upload-files", formData, {
+            await axios.post("http://localhost:3001/pdf/upload-files", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 }
@@ -60,7 +60,7 @@ function Homepage() {
 
     const handleDeletePDF = async (pdfId) => {
         try {
-            await axios.delete(`http://localhost:3003/pdf/delete-file/${pdfId}`);
+            await axios.delete(`http://localhost:3001/pdf/delete-file/${pdfId}`);
             getPdf(); 
         } catch (error) {
             console.error("Error deleting PDF:", error);
@@ -69,7 +69,7 @@ function Homepage() {
 
     const handleLogout = async () => {
         try {
-            await axios.delete("http://localhost:3003/auth/delete-account", {
+            await axios.delete("http://localhost:3001/auth/delete-account", {
                 headers: {
                     Authorization: localStorage.getItem('token')
                 }
@@ -110,7 +110,7 @@ function Homepage() {
                     {allImages.map((pdf, index) => (
                         <div key={index} className="pdf-item">
                             <p className="pdf-title">{pdf.title}</p>
-                            <Link to={`/pdfviewpage?url=http://localhost:3003/files/${pdf.pdf}`} className="view-pdf">View PDF</Link>
+                            <Link to={`/pdfviewpage?url=http://localhost:3001/files/${pdf.pdf}`} className="view-pdf">View PDF</Link>
                             <FontAwesomeIcon icon={faTrashAlt} className="delete-icon" onClick={() => handleDeletePDF(pdf._id)} />
                         </div>
                     ))}
