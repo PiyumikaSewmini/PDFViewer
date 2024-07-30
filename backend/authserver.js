@@ -1,12 +1,9 @@
-
-
 const express = require("express");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const AuthenticationModel = require("./models/Authentication");
 
 const authRouter = express.Router();
-
 
 const authenticateJWT = (req, res, next) => {
     const token = req.header('Authorization');
@@ -21,9 +18,10 @@ const authenticateJWT = (req, res, next) => {
     }
 };
 
-
 authRouter.post('/register', async (req, res) => {
     const { email, password, confirmPassword } = req.body;
+    
+    console.log("Received data:", req.body); // Log received data
     
     if (password !== confirmPassword) {
         return res.status(400).json({ message: 'Passwords do not match' });
@@ -48,7 +46,6 @@ authRouter.post('/register', async (req, res) => {
     }
 });
 
-
 authRouter.post('/login', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -65,7 +62,6 @@ authRouter.post('/login', async (req, res) => {
         res.status(500).json({ message: 'Login failed. Please try again.' });
     }
 });
-
 
 authRouter.delete('/delete-account', authenticateJWT, async (req, res) => {
     try {
